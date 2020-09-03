@@ -117,7 +117,7 @@ const config = {
             PRODUCTION: JSON.stringify(false),
             DIRECTLINE_SECRET: JSON.stringify(dotenv.parsed.PROD_PWD),
             DIRECTLINE_BOT_ID: JSON.stringify(dotenv.parsed.PROD_ID),
-            DIRECTLINE_NAME: JSON.stringify('TOBi'),
+            DIRECTLINE_NAME: JSON.stringify('appname'),
             JSENCRYPT_URL: JSON.stringify("/static/jsencrypt.js"),
             LOGIN_BASE_URL: JSON.stringify("/ssoapi/")
         }),
@@ -147,7 +147,7 @@ const config = {
                 console.log(`Request for a token arrived on webpack dev server`);
                 const browser = await puppeteer.launch();
                 const page = await browser.newPage();
-                await page.goto('https://tobi.vodafone.it');
+                await page.goto('https://xxxx');
                 const windowTobi = await page.evaluate(() => JSON.stringify(window.tobi));
                 await browser.close();
                 response.json({
@@ -159,7 +159,7 @@ const config = {
             });
             app.get('/static/jsencrypt.js', async function (req, res) {
                 try {
-                    const response = await axios.get("https://login.vodafone.it/resources/ssoapi/js/jsencrypt.js");
+                    const response = await axios.get("https://xxxx");
                     res.setHeader('Content-type', 'text/javascript');
                     res.charset = 'UTF-8';
                     res.send(response.data)
@@ -171,15 +171,15 @@ const config = {
         },
         proxy: {
             '/api': {
-                target: 'https://tobi.vodafone.it',
+                target: 'https://',
                 changeOrigin: true
             },
             '/ssoapi': {
-                target: 'https://login.vodafone.it',
+                target: 'https://',
                 changeOrigin: true
             },
             '/js': {
-                target: 'https://tobi.vodafone.it',
+                target: 'https://',
                 changeOrigin: true
             }
         }

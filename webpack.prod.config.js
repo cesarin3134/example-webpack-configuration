@@ -114,12 +114,12 @@ const config = {
             },
             DIRECTLINE_SECRET: JSON.stringify(dotenv.parsed.PROD_PWD),
             DIRECTLINE_BOT_ID: JSON.stringify(dotenv.parsed.PROD_ID),
-            DIRECTLINE_NAME: JSON.stringify('TOBi'),
-            JSENCRYPT_URL: JSON.stringify("http://login.vodafone.it/resources/ssoapi/js/jsencrypt.js"),
-            LOGIN_BASE_URL: JSON.stringify("http://login.vodafone.it/ssoapi/")
+            DIRECTLINE_NAME: JSON.stringify('appName'),
+            JSENCRYPT_URL: JSON.stringify("http://xxx"),
+            LOGIN_BASE_URL: JSON.stringify("http://xxx")
         }),
         new HtmlWebPackPlugin({
-            title: "index copied from html page from web chat",
+            title: "index",
             inject: true,
             template: 'index.html'
         }),
@@ -149,15 +149,15 @@ const config = {
         open: true,
         proxy: {
             '/api': {
-                target: 'https://tobi.vodafone.it',
+                target: 'https://xxx',
                 changeOrigin: true
             },
             '/ssoapi': {
-                target: 'https://login.vodafone.it',
+                target: 'https://xxx',
                 changeOrigin: true
             },
             '/js': {
-                target: 'https://tobi.vodafone.it',
+                target: 'https://xxx',
                 changeOrigin: true
             }
         }
